@@ -45,7 +45,7 @@
 </head>
 <body>
     <div class="container">
-	  <form id="frm" action="register.html">
+	  <form id="frm" action="redirect1.html">
         <img src="images/download.png" width="200px" alt="Veltris Logo"/>
         <h2>Enter Email </h2>
         <h4>to access Veltris</h4>
@@ -53,8 +53,10 @@
         <div class="form-container">
             <input type="email" id="em" name="em" placeholder="Email address" autofocus required />
             <br><br>
-            <button>Next</button>
+            <button id="myBtn">Next</button>
             <br><br>
+			
+			<!--
             <h4>Sign in using</h4>
             <div class="social-icons">
                 <img src="images/google.webp" alt="Google"/>
@@ -64,7 +66,23 @@
                 <img src="images/microsoft.png" alt="Microsoft"/>
                 <img src="images/apple.jpg" alt="Apple"/>
             </div>
-			<p> Don't have a veltris account? <a href="studentapplicationform.html">Sign up now</a></p>
+		    -->
+			<!--<p> Don't have a veltris account? <a href="signup.html">Sign up now</a></p>-->
+			<p id="demo"></p>
+			<script>
+				document.getElementById("myBtn").addEventListener("click",getMessage);
+				
+				function getMessage() {
+					const mail = document.getElementById('em');
+					if(!mail.contains('.com')){
+						document.getElementById("demo").innerHTML = window.alert("Invalid email");
+					}
+					else{
+						document.getElementById("demo").innerHTML = window.alert("Details submitted sucessfully");
+					}
+		
+				}
+				</script>
 			<footer>
 			<br>
 	 <p> &copy; All rights reserved, Veltris corporation pvt Ltd </p>

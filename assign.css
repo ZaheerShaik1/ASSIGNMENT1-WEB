@@ -32,8 +32,9 @@ body{
 
 h2{
 	text-align:center;
-	font-family:
+	
 }
+
 button{
     width:100%;
 	padding:4px;
@@ -56,5 +57,21 @@ input[type="text"],input[type="password"]{
 	background-color:#dedede;
 	border-radius:2px;
 }
+.checkbox-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 10px;
+}
 
+.checkbox-container input[type="checkbox"] {
+    margin-right: 0; 
+}
 
+.checkbox-container label {
+    margin-right: 10px; 
+}
+
+.checkbox-container a {
+    margin-left: auto; 
+}

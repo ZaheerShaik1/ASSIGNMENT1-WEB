@@ -1,0 +1,175 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>VELTRIS | SIGNUP PAGE </title>
+        <link rel="icon" href="images/images.png"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div>
+            <form id="signu" action="">
+                <input type="text" id="Username" name="Username" placeholder=" USERNAME" minlength="6" autofocus required>
+                <input type="email" id="email" name="email" placeholder=" EMAIL" required >
+                <input type="password" id="password" name="password" placeholder="Password" required minlength="8">
+                <input type="password" id="cnfpassword" name="cnfpassword" placeholder="confirm password" required>
+            </form>
+
+        </div>
+    </body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELTRIS SIGNUP</title>
+    <link rel="icon" href="images/images.png"/>
+    <link rel="stylesheet" href="vsign.css"/>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container for the form */
+        .container {
+            width: 400px;
+            height: 550px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+        }
+
+        /* Form Image */
+        form img {
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Form Header */
+        form h2, form h4 {
+            text-align: center;
+        }
+
+        /* Form Container */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Input Fields and Button Styles */
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], button {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Button Style */
+        button {
+            background-color: #3086e8;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color:#0b4482;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        a {
+            color: #131e6e;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="signup-form" action="redirect.html">
+            <img src="images/download.png" width="200px" alt="Veltris Logo"/>
+            <h2>Sign Up</h2>
+            <h4>for Veltris account</h4>
+            <div class="form-container">
+                <input type="text" id="username" name="username" placeholder="Username" required autofocus />
+                <input type="email" id="email" name="email" placeholder="Email address" required />
+                <input type="password" id="password" name="password" placeholder="Password" required />
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required />
+                <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required pattern="[0-9]{10}" />
+                <button type="submit" id="signup-btn">Sign Up</button>
+                <p>Already have an account? <a href="assignment1.html">Log in here</a></p>
+                <p id="message"></p>
+            </div>
+
+            <footer>
+                <br>
+                <p>&copy; All rights reserved, Veltris corporation pvt Ltd</p>
+            </footer>
+        </form>
+    </div>
+    <script>
+        const btn = document.getElementById("signup-btn");
+        var username = document.getElementById("username");
+        var email = document.getElementById("email");
+        var password = document.getElementById("password");
+        var cpass = document.getElementById("confirm-password");
+        var mobile = document.getElementById("mobile");
+
+        btn.addEventListener('click', function(event) {
+
+            event.preventDefault();
+
+            if (username.value.length === 0) {
+                alert("Invalid Username");
+            } else if (!validateEmail(email.value)) {
+                alert("Invalid Email Address.");
+            } else if (password.value.length === 0) {
+                alert("Invalid Password");
+            } else if (password.value.length < 8) {
+                alert("Password should be at least 8 characters.");
+            } else if (password.value !== cpass.value) {
+                alert("Both passwords must be the same.");
+            } else if (mobile.value.length !== 10 || isNaN(mobile.value)) {
+                alert("Mobile number must be 10 digits.");
+            } else {
+                alert(`Your registration is successful, ${username.value}`);
+         
+                window.location.href = "redirect.html";
+            }
+        });
+
+        function validateEmail(email) {
+      
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
